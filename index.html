@@ -425,114 +425,275 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 24px;
     }
 
-    .pricing-item {
-      background: var(--off-white);
-      border-radius: 8px;
+    /* === Featured Packages === */
+    .featured-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .pricing-featured {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f1a22 100%);
+      border-radius: 12px;
       overflow: hidden;
-      border-left: 4px solid var(--yellow);
+      border: 2px solid var(--yellow);
+      box-shadow: 0 8px 30px rgba(255, 193, 61, 0.15);
       transition: all 0.3s;
+      position: relative;
     }
 
-    .pricing-item:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transform: translateX(4px);
+    .pricing-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(255, 193, 61, 0.25);
     }
 
-    .pricing-header {
+    .pricing-featured .featured-badge {
+      position: absolute;
+      top: 12px;
+      right: -32px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-family: 'Oswald', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 4px 40px;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .pricing-featured .featured-badge.badge-blue {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .pricing-featured .pricing-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 24px;
+      padding: 24px 28px 16px;
       cursor: pointer;
       gap: 20px;
     }
 
-    .pricing-header h3 {
+    .pricing-featured .pricing-header h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      color: var(--navy);
+      font-size: 28px;
+      color: var(--yellow);
       letter-spacing: 1px;
-      flex-shrink: 0;
     }
 
-    .pricing-header .price-tag {
+    .pricing-featured .price-tag {
       font-family: 'Oswald', sans-serif;
-      font-size: 20px;
-      color: var(--blue);
+      font-size: 24px;
+      color: var(--white);
       font-weight: 700;
       letter-spacing: 1px;
       white-space: nowrap;
     }
 
-    .pricing-header .toggle-icon {
+    .pricing-featured .toggle-icon {
       font-size: 14px;
-      color: #999;
+      color: rgba(255,255,255,0.4);
       transition: transform 0.3s;
-      flex-shrink: 0;
     }
 
-    .pricing-item.open .toggle-icon {
+    .pricing-featured.open .toggle-icon {
       transform: rotate(180deg);
     }
 
-    .pricing-body {
+    .pricing-featured .pricing-body {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
+      transition: max-height 0.4s ease;
     }
 
-    .pricing-item.open .pricing-body {
+    .pricing-featured.open .pricing-body {
       max-height: 600px;
     }
 
-    .pricing-body-inner {
-      padding: 0 24px 20px;
+    .pricing-featured .pricing-body-inner {
+      padding: 0 28px 24px;
     }
 
-    .pricing-desc {
+    .pricing-featured .pricing-desc {
       font-size: 14px;
-      color: #666;
+      color: var(--light-blue);
       line-height: 1.6;
       margin-bottom: 14px;
-      border-bottom: 1px dashed #ddd;
       padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .pricing-breakdown {
+    .pricing-featured .pricing-breakdown {
       list-style: none;
     }
 
-    .pricing-breakdown li {
+    .pricing-featured .pricing-breakdown li {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 0;
-      font-size: 15px;
-      color: #444;
-      border-bottom: 1px dotted #eee;
+      padding: 8px 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .pricing-breakdown li:last-child {
+    .pricing-featured .pricing-breakdown li:last-child {
       border-bottom: none;
     }
 
-    .pricing-breakdown .vehicle-type {
+    .pricing-featured .pricing-breakdown .vehicle-type {
       font-weight: 600;
     }
 
-    .pricing-breakdown .vehicle-price {
+    .pricing-featured .pricing-breakdown .vehicle-price {
       font-family: 'Oswald', sans-serif;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
+      color: var(--yellow);
+    }
+
+    .pricing-featured .cta-small {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--yellow);
+      border: 1px solid var(--yellow);
+      padding: 8px 20px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .pricing-featured .cta-small:hover {
+      background: var(--yellow);
       color: var(--navy);
     }
 
-    .pricing-breakdown .starting-at {
-      color: var(--blue);
+    /* === Individual Services === */
+    .addons-label {
+      text-align: center;
+      margin: 40px 0 4px;
+      position: relative;
+    }
+
+    .addons-label h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--navy);
+      letter-spacing: 2px;
+      background: var(--white);
+      display: inline-block;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .addons-label::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--yellow), transparent);
+      z-index: 0;
+    }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 12px;
+    }
+
+    .addon-item {
+      background: var(--off-white);
+      border-radius: 8px;
+      border-left: 3px solid var(--blue);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .addon-item:hover {
+      background: #eef4f8;
+      transform: translateX(3px);
+    }
+
+    .addon-item .addon-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 14px;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--navy);
+    }
+
+    .addon-item .addon-detail {
+      display: none;
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .addon-item .addon-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blue);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .addon-item .addon-expand {
+      font-size: 11px;
+      color: #aaa;
+      margin-left: 8px;
+      transition: transform 0.2s;
+    }
+
+    .addon-item.open .addon-expand {
+      transform: rotate(180deg);
+    }
+
+    .addon-item .addon-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .addon-item.open .addon-body {
+      max-height: 200px;
+    }
+
+    .addon-item .addon-body-inner {
+      padding-top: 8px;
+      border-top: 1px dashed #ddd;
+      margin-top: 8px;
+    }
+
+    .addon-item .addon-body-inner p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .addon-item .addon-body-inner .addon-sub-price {
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--blue);
     }
 
     .pricing-footnote {
@@ -549,6 +710,12 @@
 
     .pricing-footnote a:hover {
       color: var(--navy);
+    }
+
+    @media (max-width: 768px) {
+      .featured-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ========== ABOUT / WHY US ========== */
@@ -1292,220 +1459,232 @@
     </div>
     <div class="pricing-grid">
 
-      <!-- Power Up Wash -->
-      <div class="pricing-item open">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🧼 Power Up Wash</h3>
-          <span class="price-tag">Starting at $30</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Exterior rich lather hand wash, includes door jambs + extreme tire shine</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">$30</span></li>
-              <li><span class="vehicle-type">🛻 Trucks</span><span class="vehicle-price">$30</span></li>
-              <li><span class="vehicle-type">🚙 SUVs</span><span class="vehicle-price">$40</span></li>
-            </ul>
+      <!-- === FEATURED PACKAGES === -->
+      <div class="featured-row">
+
+        <!-- Power Up Special -->
+        <div class="pricing-featured open">
+          <span class="featured-badge">⭐ MOST POPULAR</span>
+          <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
+            <h3>⚡ Power Up Special</h3>
+            <span class="price-tag">from $100</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-body-inner">
+              <p class="pricing-desc">Our flagship package — Mini Detail + Claybar paint contamination removal + Dual Action Polish Service. The perfect balance of value and results.</p>
+              <ul class="pricing-breakdown">
+                <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">from $100</span></li>
+                <li><span class="vehicle-type">🛻 Trucks</span><span class="vehicle-price">from $125</span></li>
+              </ul>
+              <a href="tel:+18634499827" class="cta-small">📞 Book Now</a>
+            </div>
           </div>
         </div>
+
+        <!-- Full Detail Service -->
+        <div class="pricing-featured">
+          <span class="featured-badge badge-blue">🏆 THE WORKS</span>
+          <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
+            <h3>🏆 Full Detail Service</h3>
+            <span class="price-tag">from $225</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="pricing-body">
+            <div class="pricing-body-inner">
+              <p class="pricing-desc">Bumper to bumper, top to bottom — includes every service we offer. The ultimate treatment for your ride.</p>
+              <ul class="pricing-breakdown">
+                <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">$225</span></li>
+                <li><span class="vehicle-type">🛻 Trucks / SUVs</span><span class="vehicle-price">$245</span></li>
+              </ul>
+              <a href="tel:+18634499827" class="cta-small">📞 Book Now</a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Mini Detail -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🧹 Mini Detail</h3>
-          <span class="price-tag">Starting at $60</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Interior detailed wipe down, vacuum, window cleaning + Power Up Wash</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">$60</span></li>
-              <li><span class="vehicle-type">🛻 Trucks</span><span class="vehicle-price">$75</span></li>
-              <li><span class="vehicle-type">🚙 SUVs</span><span class="vehicle-price">$75</span></li>
-            </ul>
-          </div>
-        </div>
+      <!-- === INDIVIDUAL SERVICES === -->
+      <div class="addons-label">
+        <h3>Individual Services</h3>
       </div>
+      <div class="addons-grid">
 
-      <!-- Power Up Special -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>⚡ Power Up Special</h3>
-          <span class="price-tag">Starting at $100</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Our most popular package — Mini Detail + Claybar paint contamination removal + Dual Action Polish Service</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price starting-at">Starting at $100</span></li>
-              <li><span class="vehicle-type">🛻 Trucks</span><span class="vehicle-price starting-at">Starting at $125</span></li>
-            </ul>
+        <!-- Power Up Wash -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🧼 Power Up Wash</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Exterior rich lather hand wash, includes door jambs + extreme tire shine</p>
+                <span class="addon-sub-price">Cars / Trucks $30 &nbsp;·&nbsp; SUVs $40</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$30</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Dual Action Polish -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>💎 Dual Action Polish / Hand Wax</h3>
-          <span class="price-tag">Starting at $65</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Long-lasting Brazilian carnauba wax, applied with dual action polisher, removed by hand. Includes claybar service.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">$65</span></li>
-              <li><span class="vehicle-type">🛻 Trucks / SUVs</span><span class="vehicle-price">$85</span></li>
-            </ul>
+        <!-- Mini Detail -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🧹 Mini Detail</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Interior detailed wipe down, vacuum, window cleaning + Power Up Wash</p>
+                <span class="addon-sub-price">Cars $60 &nbsp;·&nbsp; Trucks / SUVs $75</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$60</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Spray Wax -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🌧️ Spray Wax Service</h3>
-          <span class="price-tag">$30 / vehicle</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Liquid wax — helps prolong higher-end waxes, lasts monthly, adds shine and protection.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">Any Vehicle</span><span class="vehicle-price">$30</span></li>
-            </ul>
+        <!-- Dual Action Polish -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">💎 Dual Action Polish / Hand Wax</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Long-lasting Brazilian carnauba wax, dual action polisher, removed by hand. Includes claybar service.</p>
+                <span class="addon-sub-price">Cars $65 &nbsp;·&nbsp; Trucks / SUVs $85</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$65</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Leather Conditioning -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🪑 Leather Conditioning</h3>
-          <span class="price-tag">$25 / row</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Moisturizing leather lotion prevents cracking and repels stains.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 All Vehicles</span><span class="vehicle-price">$25 per row</span></li>
-            </ul>
+        <!-- Spray Wax -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🌧️ Spray Wax Service</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Liquid wax — helps prolong higher-end waxes, lasts monthly, adds shine and protection.</p>
+                <span class="addon-sub-price">$30 per vehicle</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$30</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Shampoo Services -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🧽 Shampoo Services</h3>
-          <span class="price-tag">$35 / row</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Rotary brush deep cleaning / stain removal / odor removal / pet hair removal.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 All Vehicles</span><span class="vehicle-price">$35 per row</span></li>
-            </ul>
+        <!-- Leather Conditioning -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🪑 Leather Conditioning</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Moisturizing leather lotion prevents cracking and repels stains.</p>
+                <span class="addon-sub-price">$25 per row</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$25</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Plastic Restoration -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🔄 Plastic Restoration</h3>
-          <span class="price-tag">Starting at $35</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Exterior plastic revival — restores a like-new appearance with long-lasting shine.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">All Vehicles</span><span class="vehicle-price starting-at">Starting at $35</span></li>
-            </ul>
+        <!-- Shampoo Services -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🧽 Shampoo Services</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Rotary brush deep cleaning / stain removal / odor removal / pet hair removal.</p>
+                <span class="addon-sub-price">$35 per row</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$35</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Headlight Restoration -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>💡 Headlight Restoration</h3>
-          <span class="price-tag">$60 / set</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Wet sanding process followed by high-speed buffer and compound. Guaranteed 6 months.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">Per Set (2 headlights)</span><span class="vehicle-price">$60</span></li>
-            </ul>
+        <!-- Plastic Restoration -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">🔄 Plastic Restoration</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Exterior plastic revival — restores like-new appearance with long-lasting shine.</p>
+                <span class="addon-sub-price">Starting at $35</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$35</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Headliner Cleaning -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>☁️ Headliner Cleaning</h3>
-          <span class="price-tag">Starting at $30</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Interior roof cleaning + stain removal.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">All Vehicles</span><span class="vehicle-price starting-at">Starting at $30</span></li>
-            </ul>
+        <!-- Headlight Restoration -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">💡 Headlight Restoration</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Wet sanding + high-speed buffer and compound. Guaranteed 6 months.</p>
+                <span class="addon-sub-price">$60 per set</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$60</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Steamer Cleaning -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>♨️ Steamer Cleaning Services</h3>
-          <span class="price-tag">Starting at $45</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Interior hot steam aggressive cleaning — removes odors and disinfects hard-to-reach areas. Kills 99.9% of germs.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">All Vehicles</span><span class="vehicle-price starting-at">Starting at $45</span></li>
-            </ul>
+        <!-- Headliner Cleaning -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">☁️ Headliner Cleaning</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Interior roof cleaning + stain removal.</p>
+                <span class="addon-sub-price">Starting at $30</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$30</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
-      </div>
 
-      <!-- Full Detail -->
-      <div class="pricing-item">
-        <div class="pricing-header" onclick="this.parentElement.classList.toggle('open')">
-          <h3>🏆 Full Detail Service</h3>
-          <span class="price-tag">Starting at $225</span>
-          <span class="toggle-icon">▼</span>
-        </div>
-        <div class="pricing-body">
-          <div class="pricing-body-inner">
-            <p class="pricing-desc">Bumper to bumper, top to bottom — includes all services.</p>
-            <ul class="pricing-breakdown">
-              <li><span class="vehicle-type">🚗 Cars</span><span class="vehicle-price">$225</span></li>
-              <li><span class="vehicle-type">🛻 Trucks / SUVs</span><span class="vehicle-price">$245</span></li>
-            </ul>
+        <!-- Steamer Cleaning -->
+        <div class="addon-item" onclick="this.classList.toggle('open')">
+          <div>
+            <span class="addon-name">♨️ Steamer Cleaning Services</span>
+            <div class="addon-body">
+              <div class="addon-body-inner">
+                <p>Interior hot steam aggressive cleaning — removes odors and disinfects hard-to-reach areas. Kills 99.9% of germs.</p>
+                <span class="addon-sub-price">Starting at $45</span>
+              </div>
+            </div>
           </div>
+          <span style="display:flex;align-items:center;gap:4px;">
+            <span class="addon-price">$45</span>
+            <span class="addon-expand">▼</span>
+          </span>
         </div>
+
       </div>
 
     </div>
     <p class="pricing-footnote">
-      📱 Prices subject to change. Call <a href="tel:+186****9827">(863) 449-9827</a> for accurate quote based on your vehicle's condition.
+      📱 Prices subject to change. Call <a href="tel:+18634499827">(863) 449-9827</a> for accurate quote based on your vehicle's condition.
     </p>
   </section>
 
